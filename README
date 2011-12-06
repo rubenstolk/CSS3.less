@@ -1,0 +1,9 @@
+/*	CSS3.less initiated by ruben.stolk@changer.nl
+	Use as you like
+*/
+
+Easy access to most CSS3-functions, without having to worry about which browser.
+
+Just put @import 'CSS3' in the top of your less-file and off you go.
+
+Use less.js as included to which I added the "formatString" method. This method is available in most other LESS-libraries but not by default in LESS.js

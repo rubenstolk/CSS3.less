@@ -1,0 +1,90 @@
+/*	CSS3.less initiated by ruben.stolk@changer.nl
+	Use as you like
+*/
+
+@color: #000;
+@shadow: #ccc;
+
+.pie
+{
+	behavior: url(PIE.htc);
+}
+
+.radius(@radiustl: 5px, @radiustr: 5px, @radiusbr: 5px, @radiusbl: 5px)
+{
+	border-radius: @radiustl;
+	-moz-border-radius: @radiustl;
+	-webkit-border-radius: @radiustl;
+	-ms-border-radius: @radiustl;
+	.pie;
+	border-top-left-radius: @radiustl;
+	-moz-border-top-left-radius: @radiustl;
+	-webkit-border-top-left-radius: @radiustl;
+	-ms-border-top-left-radius: @radiustl;
+	border-top-right-radius: @radiustr;
+	-moz-border-top-right-radius: @radiustr;
+	-webkit-border-top-right-radius: @radiustr;
+	-ms-border-top-right-radius: @radiustr;
+	border-bottom-right-radius: @radiusbr;
+	-moz-border-bottom-right-radius: @radiusbr;
+	-webkit-border-bottom-right-radius: @radiusbr;
+	-ms-border-bottom-right-radius: @radiusbr;
+	border-bottom-left-radius: @radiusbl;
+	-moz-border-bottom-left-radius: @radiusbl;
+	-webkit-border-bottom-left-radius: @radiusbl;
+	-ms-border-bottom-left-radius: @radiusbl;
+}
+
+.radius-all(@radius: 5px)
+{
+	.radius(@radius, @radius, @radius, @radius);
+}
+
+.gradient(@start, @end)
+{
+	background-color: @start;
+	background: @start;
+	background: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
+	background: -webkit-linear-gradient(top, @start, @end);
+	background: -moz-linear-gradient(top, @start, @end);
+	background: -ms-linear-gradient(top, @start, @end);
+	background: -o-linear-gradient(top, @start, @end);
+	background: linear-gradient(top, @start, @end);
+	filter: formatString("progid:DXImageTransform.Microsoft.gradient(startColorstr={0}, endColorstr={1}, gradientType=0)", @start, @end);
+}
+
+.gradient-horizontal(@start, @middle, @end)
+{
+	background: @start;
+	background: -moz-linear-gradient(@start, @middle, @end);
+	background: -webkit-gradient(linear, left top, right top, from(@start), color-stop(50%, @middle), to(@end));
+	filter: formatString("progid:DXImageTransform.Microsoft.gradient(startColorstr={0}, endColorstr={1}, gradientType=1)", @start, @middle);
+}
+
+.text-shadow(@color, @hor: 1px, @ver: 1px, @blur: 2px)
+{
+	text-shadow: @hor @ver @blur @color;
+}
+
+.box-shadow(@color: @shadow, @hor: 3px, @ver: 3px, @blur: 15px, @spread: 2px)
+{
+	-webkit-box-shadow: @hor @ver @blur @spread @color;
+	-moz-box-shadow: @hor @ver @blur @spread @color;
+	box-shadow: @hor @ver @blur @spread @color;
+	.pie;
+}
+
+.scale(@scale: 2, @hor: 'center', @ver: 'center')
+{
+	-webkit-transform: scale(@scale);
+	-webkit-transform-origin: @hor @ver;
+	-moz-transform: scale(@scale);
+	-moz-transform-origin: @hor @ver;
+	-ms-transform: scale(@scale);
+	-ms-transform-origin: @hor @ver;
+	-o-transform: scale(@scale);
+	-o-transform-origin: @hor @ver;
+	transform: scale(@scale);
+	transform-origin: @hor @ver;
+	zoom: @scale;
+}
