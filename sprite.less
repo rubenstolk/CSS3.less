@@ -1,0 +1,41 @@
+/*	sprite.less initiated by ruben.stolk@changer.nl
+	Use as you like
+*/
+
+.sprite(@x, @y)
+{
+  background-image: url(sprite.png);
+  background-repeat: no-repeat;
+  background-position: @x @y;
+}
+
+.icon(@width, @height, @x: 0px, @y: 0px)
+{
+  .sprite(@x, @y);
+  display: block;
+  width: @width;
+  height: @height;
+  text-decoration: none;
+}
+
+.icon-status-helper(@pos, @shift: 0)
+{
+  .icon(55px, 55px, -55px * @pos, -55px * @shift);
+}
+
+.icon-status
+{
+  .icon-status-helper(0);
+  text-indent: -9999px;
+  &.new             { .icon-status-helper(13);      }
+  &.delete          { .icon-status-helper(6);       }
+  &.user            { .icon-status-helper(0, 1);    }
+  &.concept         { .icon-status-helper(13, 1);   }
+  &.approved        { .icon-status-helper(8, 1);    }
+  &.accepted        { .icon-status-helper(8, 1);    }
+  &.active          { .icon-status-helper(8, 1);    }
+  &.inactive        { .icon-status-helper(5, 1);   }
+  &.pending         { .icon-status-helper(3);       }
+  &.rejected        { .icon-status-helper(5, 1);    }
+  &.expired         { .icon-status-helper(12);      }
+}

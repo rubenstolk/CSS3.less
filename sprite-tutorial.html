@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Sprite tutorial</title>
+	<body>
+
+		<h1>Tutorial</h1>
+		<p>Suppose you have your sprite-image (that of course consists of logically measured items!) called sprite.png that contains several blocks of icons.</p>
+		<p>1. Make sure that every block of icons has the icons appearing from left to right, with equal width/height, preferrably avoiding spacing. Optionally have your mouseovers and stuff on additional lines of icons below the original ones.</p>
+		<p>2. Define generic SPRITE-block: (the .sprite-function can now be used to display anything from your sprite, not just the icons)&nbsp;</p>
+		<blockquote class="posterous_short_quote">.sprite(@x, @y)<br />{<br />&nbsp; background-image: url(sprite.png);<br />&nbsp; background-repeat: no-repeat;<br />&nbsp; background-position: @x @y;<br />}</blockquote>
+		<p>3. Define generic ICON-block:</p>
+		<blockquote class="posterous_short_quote">.icon(@width, @height, @x: 0px, @y: 0px)<br />{<br />&nbsp; .sprite(@x, @y);<br />&nbsp; display: block;<br />&nbsp; width: @width;<br />&nbsp; height: @height;<br />}</blockquote>
+		<p>4. For every icon-type, define a HELPER-block (my-icons are 50px x 100px and the set of my-icons is positioned at 200px x 400px in sprite.png):</p>
+		<blockquote class="posterous_short_quote">.icon-my-icon-helper(@pos, @shift: 0)<br />{<br />&nbsp; .icon(50px, 100px, -1 * (400px + 100px * @shift), -1 * (200px + 50px * @pos));<br />}</blockquote>
+		<p>5. Define the actual ICON-block, specifying the position for every named icon, and optionally specifying your hovers:</p>
+		<blockquote class="posterous_medium_quote">.icon-my-icon<br />{<br />&nbsp; .icon-my-icon-helper(0);<br />&nbsp; &amp;.first<br />&nbsp; {<br />&nbsp; &nbsp; .icon-my-icon-helper(0);<br />&nbsp; &nbsp; &amp;:hover<br />&nbsp; &nbsp; {<br />&nbsp; &nbsp; &nbsp; .icon-my-icon-helper(0, 1);<br />&nbsp; &nbsp; }<br />&nbsp; }<br />&nbsp; &amp;.second<br />&nbsp; {<br />&nbsp; &nbsp; .icon-my-icon-helper(1);<br />&nbsp; &nbsp; &amp;:hover<br />&nbsp; &nbsp; {<br />&nbsp; &nbsp; &nbsp; .icon-my-icon-helper(1, 1);<br />&nbsp; &nbsp; }<br />&nbsp; }<br />}</blockquote>
+		<p>(You would wish for a cleaner specification of all the hovers at once, but because of most browsers lacking the background-position-x and background-position-y feature, that seems impossible, ideas welcome though!!!).</p>
+		<p>6. Now, for whatever icon you want, just write some HTML like this: [a class="my-icon first"]My First Icon[/a], you're all set!</p>
+		<p><strong>Cheers!</strong></p>
+		<p><em>(For any questions or comments, please tweet at @changertech or mail me at ruben.stolk[at]changer.in, also contact me if you're interested in a solid job offering for front-end developer in Pune!)</em></p>
+
+	</body>
+</html>
