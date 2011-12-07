@@ -12,10 +12,10 @@
 
 .radius(@radiustl: 5px, @radiustr: 5px, @radiusbr: 5px, @radiusbl: 5px)
 {
-	border-radius: @radiustl;
-	-moz-border-radius: @radiustl;
-	-webkit-border-radius: @radiustl;
-	-ms-border-radius: @radiustl;
+	border-radius: @radiustl @radiustr @radiusbr @radiusbl;
+	-moz-border-radius: @radiustl @radiustr @radiusbr @radiusbl;
+	-webkit-border-radius: @radiustl @radiustr @radiusbr @radiusbl;
+	-ms-border-radius: @radiustl @radiustr @radiusbr @radiusbl;
 	.pie;
 	border-top-left-radius: @radiustl;
 	-moz-border-top-left-radius: @radiustl;
